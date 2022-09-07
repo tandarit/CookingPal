@@ -12,7 +12,7 @@ const routes: Routes = [
     {path: ':id', component: RecipeDetailComponent, resolve: [RecipesResorverService]},    
     {path: ':id/edit', component: RecipeEditComponent, resolve: [RecipesResorverService]}
   ]}, */
-  {path: 'shopping-list', component: ShoppingListComponent},
+   {path: 'shopping-list', component: ShoppingListComponent},
   { path: 'auth', component: AuthComponent }
 ];
  
