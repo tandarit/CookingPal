@@ -8,7 +8,8 @@ import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesComponent } from "./recipes.component";
 
 const routes: Routes = [
-    {path: 'recipes', component: RecipesComponent, canActivate: [AuthGuard], children: [
+  //a lazy loading miatt kellet az első path nevet kitörölni mivel az szerepel az app-routing modulban
+    {path: '', component: RecipesComponent, canActivate: [AuthGuard], children: [
       {path: '', component: RecipeStartComponent, resolve: [RecipesResorverService]},
       {path: 'new', component: RecipeEditComponent},
       {path: ':id', component: RecipeDetailComponent, resolve: [RecipesResorverService]},    
