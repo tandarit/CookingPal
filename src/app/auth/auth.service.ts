@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { EmailValidator } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { throwError, catchError, Subject, tap, BehaviorSubject } from 'rxjs';
 import { LoggerService } from '../Logger/logger.service';
@@ -28,7 +28,7 @@ export class AuthService {
 
   signup(email: string, password: string) {
     this.logging.info("SignUp starting!");
-    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBWC82gFDA0faT-jQwQ45qy8uuuLeJ55q0",
+    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signUp?key="+environment.firebaseAPIKey,
     {
       email: email,
       password: password,
@@ -41,7 +41,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     this.logging.info("Login starting!");
-    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBWC82gFDA0faT-jQwQ45qy8uuuLeJ55q0",
+    return this.http.post<AuthResponseData>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key="+environment.firebaseAPIKey,
     {
       email: email,
       password: password,
